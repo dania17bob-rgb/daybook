@@ -39,6 +39,14 @@
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
   <script src="/daybook/_expo/static/js/web/__expo-metro-runtime-97703ae02682710149335928b974f18d.js" defer></script><script src="/daybook/_expo/static/js/web/__common-fdb3b65c73c9d76d9a0988bd1c960772.js" defer></script><script src="/daybook/_expo/static/js/web/entry-c9b3ed2e6115b876de04246a801e8ca4.js" defer></script>
-<script>if ('serviceWorker' in navigator) addEventListener('load', function () { navigator.serviceWorker.register('/daybook/sw.js', { scope: '/daybook/' }); });</script>
+<script>
+if ('serviceWorker' in navigator) {
+  var hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (hadController && !window.__daybookReloaded) { window.__daybookReloaded = true; location.reload(); }
+  });
+  addEventListener('load', function () { navigator.serviceWorker.register('/daybook/sw.js', { scope: '/daybook/' }); });
+}
+</script>
 </body>
 </html>
