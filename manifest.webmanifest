@@ -1,10 +1,15 @@
 {
+  "id": "/daybook/",
   "name": "Daybook",
   "short_name": "Daybook",
   "description": "Private planner. Data stays on this device.",
   "start_url": "/daybook/",
   "scope": "/daybook/",
   "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "orientation": "portrait",
   "background_color": "#191919",
   "theme_color": "#191919",
   "icons": [
